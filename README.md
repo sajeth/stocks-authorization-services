@@ -1,1 +1,1 @@
-# stocks-authorization-services
+# stocks-configuration-services

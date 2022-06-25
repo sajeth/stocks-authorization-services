@@ -1,0 +1,44 @@
+server:
+  servlet:
+    context-path: /authorization
+  port: 8080
+
+manage:
+  endpoints:
+    web:
+      cors:
+        allowed-methods: GET,POST,PUT,DELETE,PATCH
+    jmx:
+      exposure:
+        include: health,info
+auth:
+  timeout: 600000
+spring:
+  security:
+    user:
+      name: admin
+      password: secret
+  mvc:
+    pathmatch:
+      matching-strategy: ANT_PATH_MATCHER
+  profiles:
+    active: dev
+
+
+---
+spring:
+  profiles: dev
+
+auth:
+  secret: saji18
+  users:
+    dev: dev
+---
+
+spring:
+  profiles: prod
+
+auth:
+  secret: saji18
+  users:
+    prod: prod
