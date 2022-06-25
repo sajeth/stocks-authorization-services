@@ -19,7 +19,7 @@ class AppData {
     @Value("${auth.timeout}")
     private Integer timeout;
 
-    private Map<String, String> users;
+    private  Map<String, String> users;
 
     public void setUsers(Map<String, String> users) {
         this.users = users;
