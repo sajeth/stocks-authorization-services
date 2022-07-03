@@ -12,10 +12,19 @@ module stocks.authorization.services {
     requires spring.security.core;
     requires java.validation;
     requires org.apache.tomcat.embed.core;
+    requires spring.data.jpa;
+    requires java.persistence;
+    requires spring.tx;
+    requires spring.orm;
+    requires com.zaxxer.hikari;
     exports com.saji.stocks.authorization.pojo;
-    opens com.saji.stocks.authorization to spring.core,spring.beans,spring.context;
+    opens com.saji.stocks.authorization.services to spring.core;
+    exports com.saji.stocks.authorization.services to spring.beans, spring.context;
+    opens com.saji.stocks.authorization.entity to org.hibernate.orm.core, spring.core;
+    exports com.saji.stocks.authorization.entity to org.hibernate.orm.core, spring.beans;
+    opens com.saji.stocks.authorization to spring.core, spring.beans, spring.context;
     opens com.saji.stocks.authorization.config to spring.core;
-    exports com.saji.stocks.authorization.config to spring.beans, spring.context,spring.boot;
+    exports com.saji.stocks.authorization.config to spring.beans, spring.context, spring.boot;
     opens com.saji.stocks.authorization.controller to spring.core;
-    exports com.saji.stocks.authorization.controller to spring.beans, spring.context,spring.web;
+    exports com.saji.stocks.authorization.controller to spring.beans, spring.context, spring.web;
 }

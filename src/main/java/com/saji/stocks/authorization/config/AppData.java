@@ -5,8 +5,6 @@ import org.springframework.boot.context.properties.ConfigurationProperties;
 import org.springframework.boot.context.properties.EnableConfigurationProperties;
 import org.springframework.stereotype.Component;
 
-import java.util.Map;
-
 @Component
 @EnableConfigurationProperties
 @ConfigurationProperties(prefix = "auth")
@@ -19,11 +17,6 @@ class AppData {
     @Value("${auth.timeout}")
     private Integer timeout;
 
-    private  Map<String, String> users;
-
-    public void setUsers(Map<String, String> users) {
-        this.users = users;
-    }
 
     public String getSecret() {
         return secret;
@@ -31,10 +24,6 @@ class AppData {
 
     public Integer getTimeout() {
         return timeout;
-    }
-
-    public Map<String, String> getUsers() {
-        return users;
     }
 
     public void setSecret(String secret) {
